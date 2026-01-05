@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulatore Quiz Concorso - 1000+ Quesiti</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Area Riservata</h2>
+            <div class="password-wrapper" style="position: relative; width: 100%;">
+                <input type="password" id="password-input" placeholder="Password">
+                <span id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #64748b;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </span>
+            </div>
+            <button id="login-btn">Accedi</button>
+            <p id="login-error" class="login-error">Password errata!</p>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <div id="quiz-header">
+            <h1>Simulatore Quiz Concorso</h1>
+            <div id="mobile-header-controls" class="mobile-only">
+                <button id="mobile-reload-btn" class="header-btn refresh">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                    Aggiorna
+                </button>
+                <button id="mobile-close-btn" class="header-btn close">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                    Chiudi
+                </button>
+            </div>
+        </div>
+
+        <div id="settings-container">
+            <div id="topic-controls">
+                <button id="select-all-btn" class="topic-btn">Tutti</button>
+                <button id="deselect-all-btn" class="topic-btn">Nessuno</button>
+            </div>
+            <div id="topic-selection"></div>
+
+            <button id="start-btn" class="start-btn btn">Inizia</button>
+        </div>
+
+        <div id="question-container" class="hide">
+            <div id="question-header">
+                <div id="question-topic"></div>
+                <div id="question-counter"></div>
+            </div>
+            <div id="question"></div>
+            <div id="answer-buttons" class="btn-grid"></div>
+            <div class="controls">
+                <button id="next-btn" class="next-btn btn hide">Prossima</button>
+                <button id="end-btn" class="end-btn btn hide">Termina</button>
+            </div>
+        </div>
+
+        <div id="results-container" class="hide">
+            <h2>Risultati</h2>
+            <p>Punteggio: <span id="score"></span> / <span id="total-questions-results"></span></p>
+            <button id="restart-btn" class="btn">Riprova</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

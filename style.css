@@ -1,0 +1,247 @@
+/* --- RESET E BASE --- */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success: #10b981;
+    --danger: #ef4444;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --bg-app: #f0f7ff;
+    --bg-marked: #dbeafe;
+    --bg-dark: #0f172a;
+    --white: #ffffff;
+    --radius: 12px;
+}
+
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top right, #1e293b, #0f172a);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiato da center per scorrimento migliore su mobile */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@media (min-height: 600px) {
+    body {
+        align-items: center;
+    }
+}
+
+/* --- LOGIN OVERLAY (Deve coprire tutto) --- */
+#login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0f172a; /* Colore solido per coprire bene */
+    z-index: 10000; /* Valore altissimo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    width: 100%;
+    max-width: 320px;
+}
+
+.login-box h2 { margin-top: 0; color: var(--bg-dark); }
+.login-box input { width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
+.login-box button { width: 100%; padding: 12px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer; }
+.login-error { color: var(--danger); font-size: 0.9rem; margin-top: 10px; display: none; }
+
+/* --- CONTENITORE PRINCIPALE --- */
+.quiz-container {
+    width: 100%;
+    max-width: 950px;
+    background-color: var(--bg-app);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    margin: 10px auto;
+}
+
+@media (min-width: 768px) {
+    .quiz-container { padding: 40px; margin: 20px auto; width: 95%; }
+}
+
+/* Header */
+#quiz-header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #cbd5e1; padding-bottom: 20px; }
+#quiz-header h1 { font-weight: 800; font-size: 1.8rem; color: var(--bg-dark); margin: 0; }
+@media (min-width: 768px) {
+    #quiz-header h1 { font-size: 2.5rem; }
+}
+
+/* Topic Selection */
+.topic-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+@media (min-width: 600px) {
+    .topic-setting {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.topic-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .topic-info {
+        width: auto;
+        flex: 1;
+        margin-right: 20px;
+    }
+}
+
+.topic-controls-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.topic-btn-max {
+    background-color: #64748b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.topic-btn-max:hover {
+    background-color: var(--bg-dark);
+}
+
+.topic-question-input {
+    width: 70px !important;
+    padding: 6px !important;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+}
+
+/* Griglia Risposte */
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+    .btn-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.btn {
+    background-color: var(--white);
+    border: 2px solid #e2e8f0;
+    border-radius: var(--radius);
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn:hover:not([disabled]) { border-color: var(--primary); background-color: #eff6ff; }
+
+/* Selezione temporanea */
+.btn.selected { border-color: var(--primary); background-color: #dbeafe; box-shadow: 0 0 0 2px var(--primary); }
+
+.btn.correct { background-color: #ecfdf5 !important; border-color: var(--success) !important; color: #065f46 !important; font-weight: 800; }
+.btn.wrong { background-color: #fef2f2 !important; border-color: var(--danger) !important; color: #991b1b !important; font-weight: 800; }
+
+/* Utility */
+.hide { display: none !important; }
+
+.start-btn { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 1.2rem; }
+
+.controls { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+.next-btn, .restart-btn { background-color: var(--primary); color: white; border: none; border-radius: 8px; padding: 16px 40px; font-weight: 700; cursor: pointer; }
+.end-btn { background-color: #64748b; color: white; border: none; border-radius: 8px; padding: 16px 30px; font-weight: 600; cursor: pointer; }
+
+#question { font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 40px; color: var(--bg-dark); }
+
+/* Report Finale */
+#detailed-report { margin-top: 50px; padding-top: 30px; border-top: 2px solid #cbd5e1; }
+.report-question-container { padding: 25px; margin-bottom: 30px; background: white; border-radius: 12px; border: 1px solid #cbd5e1; display: flex; flex-direction: column; }
+
+/* --- CONTROLLI MOBILE HEADER --- */
+#mobile-header-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.header-btn:active { transform: scale(0.95); }
+
+.header-btn.refresh {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.header-btn.close {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Nascondi su Desktop */
+@media (min-width: 768px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
