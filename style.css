@@ -191,6 +191,54 @@ body {
 .btn.correct { background-color: #ecfdf5 !important; border-color: var(--success) !important; color: #065f46 !important; font-weight: 800; }
 .btn.wrong { background-color: #fef2f2 !important; border-color: var(--danger) !important; color: #991b1b !important; font-weight: 800; }
 
+/* --- OTTIMIZZAZIONE MOBILE (Inquadratura senza scorrimento) --- */
+@media (max-width: 600px) {
+    .quiz-container {
+        padding: 10px;
+        margin: 5px auto;
+    }
+    
+    #quiz-header {
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+    
+    #quiz-header h1 {
+        font-size: 1.2rem;
+    }
+
+    #question {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .btn-grid {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        min-height: 50px;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .controls {
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .next-btn, .restart-btn, .end-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    #question-header {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+}
+
 /* Utility */
 .hide { display: none !important; }
 
