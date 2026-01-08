@@ -1354,6 +1354,7 @@ function startGame() {
     currentQuizQuestions = selectedQuestions.sort(() => 0.5 - Math.random());
     settingsContainerElement.classList.add('hide');
     questionContainerElement.classList.remove('hide');
+    document.getElementById('quiz-header').classList.add('hide'); // Nasconde il titolo
     
     const oldReport = document.getElementById('detailed-report');
     if (oldReport) oldReport.remove();
@@ -1509,6 +1510,7 @@ function restartQuiz() {
     resultsContainerElement.classList.add('hide');
     questionContainerElement.classList.add('hide');
     settingsContainerElement.classList.remove('hide');
+    document.getElementById('quiz-header').classList.remove('hide'); // Mostra il titolo
     
     // Pulisci il report e i dati precedenti
     const oldReport = document.getElementById('detailed-report');

@@ -194,48 +194,36 @@ body {
 /* --- OTTIMIZZAZIONE MOBILE (Inquadratura senza scorrimento) --- */
 @media (max-width: 600px) {
     .quiz-container {
-        padding: 10px;
-        margin: 5px auto;
+        padding: 8px;
+        margin: 0 auto;
+        border-radius: 0; /* Rimuove arrotondamento per guadagnare pixel */
     }
     
-    #quiz-header {
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-    }
-    
-    #quiz-header h1 {
-        font-size: 1.2rem;
-    }
-
     #question {
-        font-size: 1.1rem;
-        margin-bottom: 15px;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        line-height: 1.2;
     }
 
     .btn-grid {
-        gap: 8px;
-        margin-bottom: 15px;
+        gap: 6px;
+        margin-bottom: 10px;
     }
 
     .btn {
-        min-height: 50px;
-        padding: 10px;
-        font-size: 0.9rem;
+        min-height: 45px;
+        padding: 8px;
+        font-size: 0.85rem;
     }
 
     .controls {
-        margin-top: 10px;
-        gap: 10px;
+        margin-top: 8px;
+        gap: 8px;
     }
 
     .next-btn, .restart-btn, .end-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-    
-    #question-header {
-        font-size: 0.8rem;
-        margin-bottom: 5px;
+        padding: 10px 15px;
+        font-size: 0.85rem;
     }
 }
 
