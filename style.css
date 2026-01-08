@@ -195,16 +195,87 @@ body {
 .hide { display: none !important; }
 
 .start-btn { width: 100%; padding: 18px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 20px; font-size: 1.2rem; }
+.start-btn:hover { background-color: var(--primary) !important; color: white !important; }
 
 .controls { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
 .next-btn, .restart-btn { background-color: var(--primary); color: white; border: none; border-radius: 8px; padding: 16px 40px; font-weight: 700; cursor: pointer; }
+.next-btn:hover, .restart-btn:hover { background-color: var(--primary) !important; color: white !important; }
+
 .end-btn { background-color: #64748b; color: white; border: none; border-radius: 8px; padding: 16px 30px; font-weight: 600; cursor: pointer; }
+.end-btn:hover { background-color: #64748b !important; color: white !important; }
 
 #question { font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 40px; color: var(--bg-dark); }
 
 /* Report Finale */
 #detailed-report { margin-top: 50px; padding-top: 30px; border-top: 2px solid #cbd5e1; }
 .report-question-container { padding: 25px; margin-bottom: 30px; background: white; border-radius: 12px; border: 1px solid #cbd5e1; display: flex; flex-direction: column; }
+.report-number { font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+.report-question-text { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; color: var(--bg-dark); }
+
+.report-answer-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.report-check-box {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid #cbd5e1;
+    margin-right: 12px;
+    border-radius: 4px;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Risposta Corretta (Sempre Verde) */
+.correct-answer {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #15803d;
+}
+
+/* Selezionata Sbagliata (Rossa) */
+.wrong-selected {
+    background-color: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+}
+
+/* Stile Checkbox per Selezionate (Sia giuste che sbagliate) */
+.user-selected .report-check-box,
+.wrong-selected .report-check-box {
+    background-color: currentColor;
+    border-color: currentColor;
+}
+
+/* Segno di spunta bianco dentro la checkbox selezionata */
+.user-selected .report-check-box::after,
+.wrong-selected .report-check-box::after {
+    content: '';
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    margin-bottom: 2px;
+}
+
+/* Evidenzia la checkbox della risposta corretta (anche se non selezionata) */
+.correct-answer .report-check-box {
+    border-color: #15803d;
+}
+/* Se corretta ma NON selezionata, metti un bordo più spesso o un indicatore */
+.correct-answer:not(.user-selected) .report-check-box {
+    background-color: rgba(21, 128, 61, 0.1); 
+}
 
 /* --- CONTROLLI MOBILE HEADER --- */
 #mobile-header-controls {
