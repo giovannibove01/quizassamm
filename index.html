@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
     <div class="quiz-container">
         <div id="quiz-header">
             <h1>Simulatore Quiz Concorso</h1>
@@ -51,12 +49,18 @@
         </div>
 
         <div id="results-container" class="hide">
-            <h2>Risultati</h2>
-            <p>Punteggio: <span id="score"></span> / <span id="total-questions-results"></span></p>
-            <button id="restart-btn" class="btn">Riprova</button>
+            <div class="results-header">
+                <h2>Risultati</h2>
+                <button id="home-btn" class="btn home-btn">HOME</button>
+            </div>
+            <div class="score-summary">
+                <p>Punteggio: <span id="score"></span> / <span id="total-questions-results"></span></p>
+            </div>
+            <div id="answers-review" class="answers-review"></div>
         </div>
     </div>
 
+    <script src="questions_db.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
