@@ -67,13 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initQuiz() {
+    console.log("Inizializzazione quiz...");
     // Recupera domande da window.allQuestions (popolato da questions_db.js)
-    if (window.allQuestions && window.allQuestions.length > 0) {
+    if (typeof window.allQuestions !== 'undefined' && Array.isArray(window.allQuestions) && window.allQuestions.length > 0) {
         allQuestionsData = window.allQuestions;
-        console.log("Domande caricate: " + allQuestionsData.length);
+        console.log("Domande caricate con successo: " + allQuestionsData.length);
     } else {
-        console.error("ERRORE: Nessuna domanda trovata in window.allQuestions!");
-        alert("Errore nel caricamento del database domande.");
+        console.error("ERRORE: Database domande non trovato o vuoto!");
+        console.log("Stato window.allQuestions:", typeof window.allQuestions);
+        if (typeof window.allQuestions !== 'undefined') {
+            console.log("Lunghezza allQuestions:", window.allQuestions.length);
+        }
+        alert("Errore nel caricamento del database domande. Verifica che il file questions_db.js sia presente e non contenga errori.");
         return;
     }
 
